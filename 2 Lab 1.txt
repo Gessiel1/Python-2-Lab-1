@@ -1,0 +1,43 @@
+from typing import Union
+import doctest
+# TODO Написать 3 класса с документацией и аннотацией типов
+class Car:
+    def __init__(self, door2: int, chair3: int):
+        """
+        creation of a class: Car
+        number of door : 2
+        number of chair: 3
+        Example: Car(2,3)
+        """
+        self.attr1= door2
+        self.attr2= chair3
+
+        if not isinstance(door2,(int)):
+            raise TypeError("Объем стакана должен быть типа int или float")
+        if door2 <= 0:
+            raise ValueError("Объем стакана должен быть положительным числом")
+        self.door2 = door2
+
+        if not isinstance(chair3, (int)):
+            raise TypeError("Количество жидкости должно быть int или float")
+        if chair3 < 0:
+            raise ValueError("Количество жидкости не может быть отрицательным числом")
+        self.chair3 = chair3
+
+    def is_door_close(self, door2)->bool :
+        door= door2(True, False)
+        door2.is_door_close()
+
+    def open_door_number(self, door2: int, chair3: int):
+        if not isinstance(door2):
+            raise TypeError
+        if door2 < 2 :
+            raise ValueError
+
+    def seat_on_chair(self, chair3: int)-> None:
+        chair = chair3(3)
+        chair.seat_on_chair()
+
+if __name__ == "__main__":
+    # TODO работоспособность экземпляров класса проверить с помощью doctest
+    pass
