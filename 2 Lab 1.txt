@@ -1,4 +1,3 @@
-from typing import Union
 import doctest
 # TODO Написать 3 класса с документацией и аннотацией типов
 class Car:
@@ -12,32 +11,81 @@ class Car:
         self.attr1= door2
         self.attr2= chair3
 
-        if not isinstance(door2,(int)):
+        if not isinstance(door2,(int, float)):
             raise TypeError("Объем стакана должен быть типа int или float")
         if door2 <= 0:
             raise ValueError("Объем стакана должен быть положительным числом")
         self.door2 = door2
 
-        if not isinstance(chair3, (int)):
+        if not isinstance(chair3, (int, float)):
             raise TypeError("Количество жидкости должно быть int или float")
         if chair3 < 0:
             raise ValueError("Количество жидкости не может быть отрицательным числом")
         self.chair3 = chair3
 
-    def is_door_close(self, door2)->bool :
+    def is_door_closed(self, door2)->bool :
         door= door2(True, False)
         door2.is_door_close()
-
-    def open_door_number(self, door2: int, chair3: int):
-        if not isinstance(door2):
+        if not isinstance(door2(int, float)):
             raise TypeError
-        if door2 < 2 :
+        if door2 <= 0:
             raise ValueError
 
     def seat_on_chair(self, chair3: int)-> None:
         chair = chair3(3)
         chair.seat_on_chair()
 
+class Phone:
+    def __init__(self, capacity:float, model:int):
+        """
+        creation of a class: phone
+        capacity: 8
+        model: 9
+        phone = Phone(8, 9)
+        """
+        if not isinstance(capacity, (int, float)):
+            raise TypeError ("type should be str")
+        if capacity <= 0:
+            raise ValueError("it should be positive")
+        self.capacity= capacity
+
+    def change_model(self, new_model) -> int:
+        if not isinstance(new_model, (int, float)):
+            raise TypeError("type should be str")
+        if new_model < 0:
+            raise ValueError("it should be positive")
+        self.new_model = new_model
+
+    def take_the_new_phone(self) -> bool:
+        ...
+
+class House:
+    def __init__(self,bedroom:int,living_room:int):
+        """
+        bedroom =2
+        living_room = 3
+        """
+        if not isinstance(bedroom, int):
+            raise TypeError("it should be str")
+        self.bedroom = bedroom
+
+        if not isinstance(living_room, int):
+            raise TypeError("it should be int")
+
+        if living_room < 3:
+            raise ValueError("it should be = 3")
+        self.living_room= living_room
+
+    def change_color(self, new_color:int) -> int:
+        if not isinstance(new_color, int):
+            raise TypeError("it should be int")
+        if color<0:
+            raise ValueError
+
+    def add_sofa(self, new_sofa) -> bool:
+        ...
+
 if __name__ == "__main__":
     # TODO работоспособность экземпляров класса проверить с помощью doctest
     pass
+
